@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class=flashes>
+    {% for message in messages %}
+        <h3>{{message}}</h3>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<div class="container">
+    <h1>Welcome to Workout Recorder</h1>
+    <hr>
+    <h3>Please sign in or sign up from the form below</h3>
+</div>
+<div class="container page-form">
+    <form id="login-form" action="/users/login" method="post">
+        <h3>Sign In</h3>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input placeholder="Email" type="text" id="email" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="hashed">Password</label>
+            <input placeholder="Password" type="password" id="hashed" name="hashed" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+    <div style="margin-top:8px">
+        <a href="/users/register"><button type="button" class="btn btn-primary">Sign Up</button></a>
+    </div>
+</div>
+{% endblock %}

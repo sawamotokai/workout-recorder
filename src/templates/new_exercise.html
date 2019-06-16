@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="/users/welcome/{{ user_id }}">Workout Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/users/welcome/{{ user_id }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">
+            Menu</a>
+          <div class="dropdown-menu">
+            <a href="/exercises/record/1rm/{{user_id}}" class="dropdown-item">ESTIMATE BIG3 Growth</a>
+            <a href="/exercises/weight_suggestion/{{user_id}}" class="dropdown-item">Weight Suggestion</a>
+          </div>
+        </li>
+         <li class="nav-item">
+          <a href="/users/logout" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <form class="card card-body" id="new-exercise" action="/exercises/{{split}}/new/{{ user_id }}" method="post">
+        <div class="form-group">
+            <label for="exercise">Exercise</label>
+            <input required type="text" id="exercise" name="exercise" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight</label>
+            <input required type="number" id="weight" name="weight" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="reps">Reps</label>
+            <input required type="number" id="reps" name="reps" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="weight">Sets</label>
+            <input required type="number" id="sets" name="sets" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea id="comment" name="comment" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+    </form>
+</div>
+{% endblock %}

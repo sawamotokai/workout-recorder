@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2 class="mt-5">Record of {{exercise.name}}</h2>
+    <hr>
+        {% for i in range(1, exercise.record|length + 1) %}
+        <div class="card card-body mb2">
+            <h4>{{ exercise.record[-i]['date'] }}</h4>
+            <p>WEIGHT: {{ exercise.record[-i]['weight']}}</p>
+            <p>REPS: {{exercise.record[-i]['reps']}}</p>
+            <p>SETS: {{exercise.record[-i]['sets']}}</p>
+            <p>COMMENT: {{exercise.record[-i]['comment']}}</p>
+        </div>
+        {% endfor %}
+
+{% endblock %}
+

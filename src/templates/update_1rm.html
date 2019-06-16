@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <form class="card card-body" id="OneRM" action="/exercises/update/1rm/{{ user_id }}" method="post">
+        <div class="form-group">
+            <h2>What are your 1RM records for Big3</h2>
+        </div>
+        <div class="form-group">
+            <label for="bench">BENCH PRESS</label>
+            <input required type="number" id="bench" name="bench" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="dead">DEAD LIFT</label>
+            <input required type="number" id="dead" name="dead" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="squat">SQUAT</label>
+            <input required type="number" id="squat" name="squat" class="form-control">
+        </div>
+        <button type="submit" class="btn-black btn btn-dark mb2">Update 1RM</button>
+    </form>
+</div>
+{% endblock %}

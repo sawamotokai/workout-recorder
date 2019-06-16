@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="/users/welcome/{{ user_id }}">Workout Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/users/welcome/{{ user_id }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">
+            Menu</a>
+          <div class="dropdown-menu">
+            <a href="/exercises/record/1rm/{{user_id}}" class="dropdown-item">ESTIMATE BIG3 Growth</a>
+            <a href="/exercises/weight_suggestion/{{user_id}}" class="dropdown-item">Weight Suggestion</a>
+          </div>
+        </li>
+         <li class="nav-item">
+          <a href="/users/logout" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div>
+    <h2>BENCH PRESS</h2>
+    <h3>{{ suggestion['bench'][0] }} at {{ suggestion['bench'][1] }} REPS for {{ suggestion['bench'][2] }} SETS</h3>
+    <hr>
+</div>
+<div>
+    <h2>DEAD LIFT</h2>
+    <h3>{{ suggestion['dead'][0] }} at {{ suggestion['dead'][1] }} REPS for {{ suggestion['dead'][2] }} SETS</h3>
+    <hr>
+</div><div>
+    <h2>SQUAT</h2>
+    <h3>{{ suggestion['squat'][0] }} at {{ suggestion['squat'][1] }} REPS for {{ suggestion['squat'][2] }} SETS</h3>
+    <hr>
+</div>
+{% endblock %}

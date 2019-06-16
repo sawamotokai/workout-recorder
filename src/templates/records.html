@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="/users/welcome/{{ user_id }}">Workout Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/users/welcome/{{ user_id }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">
+            Menu</a>
+          <div class="dropdown-menu">
+            <a href="/exercises/record/1rm/{{user_id}}" class="dropdown-item">ESTIMATE BIG3 Growth</a>
+            <a href="/exercises/weight_suggestion/{{user_id}}" class="dropdown-item">Weight Suggestion</a>
+          </div>
+        </li>
+         <li class="nav-item">
+          <a href="/users/logout" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <h2>{{split.upper()}} DAY</h2>
+    <hr>
+    <a href="/exercises/{{split}}/new/{{user_id}}"><button class="btn btn-primary">Add New Exercise</button></a>
+    {% if exercise_list|length > 0 %}
+        {% for exercise in exercise_list %}
+        <div class="card card-body mb2">
+            <h4>{{exercise.name}}</h4>
+            <p>WEIGHT: {{ exercise.record[-1]['weight']}}</p>
+            <p>REPS: {{exercise.record[-1]['reps']}}</p>
+            <p>SETS: {{exercise.record[-1]['sets']}}</p>
+            <p>Memo: {{exercise.record[-1]['comment']}}</p>
+            <a class="btn btn-dark btn-block mb-4" href="/exercises/{{split}}/update/{{exercise._id}}">Update</a>
+            <a class="btn btn-success btn-block mb-4" href="/exercises/history/{{exercise._id}}">See the Record History</a>
+
+        </div>
+        {% endfor %}
+    {% else %}
+        <h4>There is no record yet!</h4>
+    {% endif %}
+</div>
+{% endblock %}
