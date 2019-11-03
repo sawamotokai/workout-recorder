@@ -1,13 +1,15 @@
 import pymongo
 
 class Database(object):
-    URI = 'mongodb://127.0.0.1:27017'
+    URI = 'mongodb://kai:sawamoto1@ds141168.mlab.com:41168/workout-recorder'
     DATABASE = None
 
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.URI)
-        Database.DATABASE = client["original"]
+        Database.DATABASE = client["workout-recorder"]
+        db = client["workout-recorder"]
+        db.authenticate('kai', 'sawamoto1')
 
     @staticmethod
     def insert(collection, data):
