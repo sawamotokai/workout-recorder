@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+import os
 from src.common.database import Database
 
 app = Flask(__name__)
@@ -26,3 +26,4 @@ app.register_blueprint(user_blueprint, url_prefix='/users')
 from src.models.exercises.views import exercise_blueprint
 app.register_blueprint(exercise_blueprint, url_prefix='/exercises')
 
+app.run(debug=app.config['DEBUG'], port=2000)
