@@ -1,6 +1,9 @@
 # workout-recorder
 Keeps track of your workout log and displays graphs of your growth. It also suggests weight you might want to use.
 
+This app is deployed on heroku server and connected to mlab database.
+URL: https://sleepy-spire-95192.herokuapp.com/
+
 HOW TO RUN THE APP
 
 Run MongoDB.
