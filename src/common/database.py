@@ -1,7 +1,7 @@
 import pymongo
 
 class Database(object):
-    URI = 'mongodb://127.0.0.1:27017'
+    URI = 'mongodb://kai:sawamoto1@ds141168.mlab.com:41168/workout-recorder'
     DATABASE = None
 
     @staticmethod
